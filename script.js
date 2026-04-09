@@ -22,17 +22,16 @@ async function getNews(category) {
   try {
     const apiUrl = `https://newsapi.org/v2/everything?q=${category}&apiKey=${apiKey}`;
 
-    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
 
     const res = await fetch(url);
-    const raw = await res.json();
-    const data = JSON.parse(raw.contents);
+    const data = await res.json();
 
     console.log(data);
 
     displayNews(data.articles);
   } catch (error) {
-    console.log(error);
+    console.log("Error:", error);
   }
 
   document.getElementById("loader").style.display = "none";
@@ -67,14 +66,11 @@ function searchNews() {
   const query = document.getElementById("search").value;
 
   const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
-  const url = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+  const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
 
   fetch(url)
     .then(res => res.json())
-    .then(raw => {
-      const data = JSON.parse(raw.contents);
-      displayNews(data.articles);
-    })
+    .then(data => displayNews(data.articles))
     .catch(err => console.log(err));
 }
 
