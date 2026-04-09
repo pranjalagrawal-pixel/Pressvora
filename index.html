@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>PressVora</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔥 NAVBAR -->
+<div class="navbar">
+  <h2>PressVora</h2>
+
+  <input type="text" id="search" placeholder="Search news...">
+  <button onclick="searchNews()">Search</button>
+
+  <button onclick="toggleDark()">🌙</button>
+</div>
+
+<!-- 🔥 CATEGORY BAR -->
+<div class="categories">
+  <button onclick="getNews('general')">General</button>
+  <button onclick="getNews('technology')">Tech</button>
+  <button onclick="getNews('sports')">Sports</button>
+  <button onclick="getNews('business')">Business</button>
+  <button onclick="searchNewsByTopic('defense')">Defense</button>
+</div>
+
+<!-- 🔥 NEWS -->
+<div id="loader">Loading...</div>
+<div id="news-container"></div>
+
+<script src="script.js"></script>
+<div class="bottom-nav">
+  <button onclick="getNews('general')">🏠</button>
+  <button onclick="getNews('technology')">💻</button>
+  <button onclick="getNews('sports')">🏏</button>
+  <button onclick="getNews('business')">💼</button>
+</div>
+</body>
+</html>
