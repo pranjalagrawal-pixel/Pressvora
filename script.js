@@ -17,21 +17,22 @@ window.onload = () => {
 
 // 🔹 Get category news
 async function getNews(category) {
-  currentCategory = category;   // ✅ save selected category
-
   document.getElementById("loader").style.display = "block";
 
   try {
-    const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+    const apiUrl = `https://newsapi.org/v2/everything?q=${category}&apiKey=${apiKey}`;
+
+    const url = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
 
     const res = await fetch(url);
-    const data = await res.json();
+    const raw = await res.json();
+    const data = JSON.parse(raw.contents);
 
-    console.log("Category:", currentCategory, data);
+    console.log(data);
 
     displayNews(data.articles);
   } catch (error) {
-    console.log("Error:", error);
+    console.log(error);
   }
 
   document.getElementById("loader").style.display = "none";
@@ -63,14 +64,19 @@ function displayNews(articles) {
 
 // 🔍 Search news
 function searchNews() {
-  const query = document.getElementById("search").value.trim();
+  const query = document.getElementById("search").value;
 
-  if (!query) {
-    alert("Enter something to search!");
-    return;
-  }
+  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
+  const url = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
 
-  document.getElementById("loader").style.display = "block";
+  fetch(url)
+    .then(res => res.json())
+    .then(raw => {
+      const data = JSON.parse(raw.contents);
+      displayNews(data.articles);
+    })
+    .catch(err => console.log(err));
+}
 
   // ✅ combine search + category PROPERLY
   const finalQuery = `${query} AND ${currentCategory}`;
