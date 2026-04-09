@@ -20,7 +20,7 @@ async function getNews(category) {
   document.getElementById("loader").style.display = "block";
 
   try {
-    const apiUrl = `https://newsapi.org/v2/everything?q=${category}&apiKey=${apiKey}`;
+    const apiUrl = `https://newsapi.org/v2/everything?q=${category}+india&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
 
     const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
 
@@ -65,7 +65,8 @@ function displayNews(articles) {
 function searchNews() {
   const query = document.getElementById("search").value;
 
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
+  const apiUrl = `https://newsapi.org/v2/everything?q=${query}+india&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+
   const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`;
 
   fetch(url)
@@ -73,7 +74,6 @@ function searchNews() {
     .then(data => displayNews(data.articles))
     .catch(err => console.log(err));
 }
-
   // ✅ combine search + category PROPERLY
   const finalQuery = `${query} AND ${currentCategory}`;
 
