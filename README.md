@@ -1,23 +1,24 @@
 ## 👨‍💻 Contribution
 
-- 👤 Pranjal Agrawal → Frontend UI, Design, Features
-- 👤 kumbakonam krishna shree shrutee harshita → API Integration, Logic, Testing
+* **Pranjal Agrawal** → Frontend UI, Design, Feature Development
+* **Kumbakonam Krishna Shree Shrutee Harshita** → API Integration, Logic, Testing
 
 ---
 
-### 🧩 Collaboration Highlights
+## 🧩 Collaboration Highlights
 
-- Worked in a team of 2 using task division
-- Implemented feature-based development
-- Improved debugging and integration skills
+* Worked collaboratively in a team of 2 with clear task division
+* Followed a feature-based development approach
+* Enhanced debugging and integration skills through teamwork
 
 ---
 
 ## 💼 Project Purpose
 
-This project was developed to enhance skills in frontend development, API integration, and teamwork.
-```markdown
-### 🧩 Collaboration Highlights
-- Worked in a team of 2 using task division
-- Implemented feature-based development
-- Improved debugging and integration skills
+This project was developed to strengthen practical skills in:
+
+* Frontend development
+* API integration
+* Collaborative software development
+
+It demonstrates the ability to build and deploy a real-world application while working effectively in a team environment.
